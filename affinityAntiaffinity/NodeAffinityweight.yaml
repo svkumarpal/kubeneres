@@ -24,7 +24,7 @@ spec:
                   values:
                   - gold
                   - silver
-          preferredDuringSchedulingIgnoreDuringExecution:
+          preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 10
             preference:
                matchExpressions:
