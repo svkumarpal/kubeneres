@@ -23,5 +23,7 @@ $ kubectl get service
 $ kubectl describe svc nginx-lab-1
 
 # Get information under individual pods:
+#syntax
 $kubectl exec <pod name> -- curl -s http://<service IP>
+#Example
 $kubectl exec nginx-lab-1-78bfcbc5d8-f2dk8 -- curl -s http://10.98.220.225
