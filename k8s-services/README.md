@@ -22,7 +22,7 @@ $ kubectl get service
 # Get Service details.
 $ kubectl describe svc nginx-lab-1
 
-# Get information under individual pods.
+# Access container inside the cluster.
 # syntax
 $kubectl exec "pods container name" -- curl -s http://"service IP"
 
