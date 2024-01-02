@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    type: dev
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: dev
+  template:
+    metadata:
+      labels:
+        type: dev
+    spec:
+      containers:
+      - name: nginx-deploy
+        image: nginx
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+        ports:
+        - containerPort: 80
