@@ -35,3 +35,8 @@ networkpolicies                   netpol       networking.k8s.io/v1             
 poddisruptionbudgets              pdb          policy/v1                              true         PodDisruptionBudget
 priorityclasses                   pc           scheduling.k8s.io/v1                   false        PriorityClass
 storageclasses                    sc           storage.k8s.io/v1                      false        StorageClass
+
+# added loop to check all api-resources status
+for p in `(cat k8sshortcut.txt)`; do echo "kubectl get ${p}"; kubectl get "${p}"; done
+
+where k8sshortcut.txt is list from 2nd column at above.
