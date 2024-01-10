@@ -7,37 +7,10 @@ If everything was right, all the required resources are created and we should be
 Next step is to check all the resources by the below command
 $ kubectl get all -n kubernetes-dashboard
 
-Home / Docker Kubernetes / Kubernetes Dashboard: An Overview, Installation, and Accessing
-Kubernetes Dashboard: An Overview, Installation, and Accessing
-
-December 8, 2023 by Sahid 3 Comments
-
- 30701 views
-Most of us love the GUI based interactions rather than the old and boring CLI ones. So, to make things easier Kubernetes Dashboard was developed which definitely has gained more attention of people who were looking at Kubernetes in dilemma. The Kubernetes Dashboard is also a part of the new Certified Kubernetes Security Specialist (CKS) exam, and it comes under the Cluster Setup of the CKS exam topics. If you are looking for a resource to learn what exactly is a Kubernetes Dashboard, what does it do, and how to install it then, you have arrived at the right place where you find a thorough guide to all of it.
-
-
-In this blog post, I’m going to cover:
-
-What is the Kubernetes Dashboard?
-What does it do?
-How to install the Kubernetes Dashboard?
-Accessing the Dashboard
 Kubernetes Dashboard Overview
 The web-based Kubernetes console, which is a general-purpose UI made to look after the Cluster in Kubernetes. Surprisingly, even the dashboard is nothing but a container that access the cluster inform from within the cluster. So, it’s just another resource for Kubernetes to manage.
 
-Kubernetes DashboardKubernetes Dashboard
-
 It is used for deploying containerized applications as well as for general cluster resource management. As mentioned before it is very useful to have a visual representation of our cluster in a user-friendly interface.
-
-Also Check: What is the difference between docker and Kubernetes.
-
-What does the Kubernetes dashboard do?
-Here are the things you can do with the Kubernetes dashboard:
-
-You will get an overview of applications running on your cluster.
-To create or modify the individual Kubernetes resources for example Deployments, Jobs, etc.
-It provides the information on the state of Kubernetes resources in your cluster, and on any errors that may have occurred.
-Learn with us: Check out our kubernetes training & understand Kubernetes basics in a better way.
 
 Installing the Kubernetes Dashboard
 Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow the step-by-step procedure given below. We need to apply the recommended deployment descriptor file:
@@ -45,36 +18,19 @@ Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow th
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml 
 If everything was right, all the required resources are created and we should be able to see the below output:
 
- 
-
-k8s dashboard new
-
-Also Read: Our blog post on Configmap Kubernetes.
-
-Next step is to check all the resources by the below command
+# Next step is to check all the resources by the below command
 $ kubectl get all -n kubernetes-dashboard
 
-Dashboard Successful
-
-Read More: About Prometheus Grafana Kubernetes.
-
-Accessing the Kubernetes Dashboard
+# Accessing the Kubernetes Dashboard
 We can access the Kubernetes dashboard in the following ways:
 
 kubectl port-forward (only from kubectl machine)
 kubectl proxy (only from kubectl machine)
 Kubernetes Service (NodePort/ClusterIp/LoadBalancer)
 Ingress Controller (Layer 7)
-Now, let us look at a couple of ways of accessing the K8s Dashboard.
 
-
-Check Out: What is Kubernetes deployment.
-
-Using Kubernetes Service
 Once the Kubernetes dashboard deployment is completed you can access the Kubernetes dashboard by following the next set of instructions.
 This will be a proxy server between your machine and K8s API server. Since the service type is ClusterIp by default, we can’t access the dashboard outside the cluster as it is not exposed. But if we want to access the dashboard from outside the cluster we have to change the type of the service to either NodePort or Loadbalancer.
-
-Via NodePort
 
 We will have to change the type of service from ClusterIp to NodePort. So, give the following command to edit the service and make the following changes:
 
@@ -124,4 +80,3 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 Now, to view the dashboard in the browser, navigate to the following address in the browser:
 https://<NodeIp>:<dashboard port> #port will get through kubect get svc -n kubernetes-dashboard
-
