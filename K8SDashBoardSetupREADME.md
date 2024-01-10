@@ -46,10 +46,10 @@ status:
 
 $ vim dashboard-adminuser.yaml 
 
-<apiVersion: v1
+apiVersion: v1\
 kind: ServiceAccount
-metadata:
-  name: admin-user
+metadata:\
+  name: admin-user\
   namespace: kubernetes-dashboard
 ---
 < apiVersion: rbac.authorization.k8s.io/v1
@@ -88,7 +88,7 @@ metadata:\
   namespace: kubernetes-dashboard\
   annotations:\
     kubernetes.io/service-account.name: "admin-user"\  
-type: kubernetes.io/service-account-token\
+type: kubernetes.io/service-account-token
 
 $ kubectl create -f admin-user-secret.yaml
 
