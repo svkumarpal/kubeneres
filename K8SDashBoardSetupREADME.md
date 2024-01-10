@@ -80,6 +80,7 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 # create secret
 $vim admin-user-secret.yaml
+
 <pr>apiVersion: v1
 kind: Secret
 metadata:
@@ -88,6 +89,7 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: "admin-user"   
 type: kubernetes.io/service-account-token</pr>
+
 $ kubectl create -f admin-user-secret.yaml
 
 After Secret is created, we can execute the following command to get the token which saved in the Secret:
