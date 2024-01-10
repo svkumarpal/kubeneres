@@ -52,9 +52,9 @@ metadata:
   name: admin-user
   namespace: kubernetes-dashboard
 ---
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
+<pr>apiVersion: rbac.authorization.k8s.io/v1
+<pr>kind: ClusterRoleBinding</pr>
+<pr>metadata:</pr>
   name: admin-user
 roleRef:
   apiGroup: rbac.authorization.k8s.io
