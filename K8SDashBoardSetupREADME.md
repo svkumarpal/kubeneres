@@ -1,40 +1,40 @@
 # Installing the Kubernetes Dashboard
 # Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow the step-by-step procedure given below. We need to apply the recommended deployment descriptor file:
 
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml  
 If everything was right, all the required resources are created and we should be able to see the below output:
 
 Next step is to check all the resources by the below command
-$ kubectl get all -n kubernetes-dashboard
+$ kubectl get all -n kubernetes-dashboard  
 
-Kubernetes Dashboard Overview
+# Kubernetes Dashboard Overview  
 The web-based Kubernetes console, which is a general-purpose UI made to look after the Cluster in Kubernetes. Surprisingly, even the dashboard is nothing but a container that access the cluster inform from within the cluster. So, it’s just another resource for Kubernetes to manage.
 
 It is used for deploying containerized applications as well as for general cluster resource management. As mentioned before it is very useful to have a visual representation of our cluster in a user-friendly interface.
 
-Installing the Kubernetes Dashboard
+# Installing the Kubernetes Dashboard
 Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow the step-by-step procedure given below. We need to apply the recommended deployment descriptor file:
 
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml 
-If everything was right, all the required resources are created and we should be able to see the below output:
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml  
+If everything was right, all the required resources are created and we should be able to see the below output:  
 
-# Next step is to check all the resources by the below command
-$ kubectl get all -n kubernetes-dashboard
+# Next step is to check all the resources by the below command  
+$ kubectl get all -n kubernetes-dashboard  
 
 # Accessing the Kubernetes Dashboard
-We can access the Kubernetes dashboard in the following ways:
+We can access the Kubernetes dashboard in the following ways:  
 
-kubectl port-forward (only from kubectl machine)
-kubectl proxy (only from kubectl machine)
-Kubernetes Service (NodePort/ClusterIp/LoadBalancer)
-Ingress Controller (Layer 7)
+kubectl port-forward (only from kubectl machine)  
+kubectl proxy (only from kubectl machine)  
+Kubernetes Service (NodePort/ClusterIp/LoadBalancer)  
+Ingress Controller (Layer 7)  
 
-Once the Kubernetes dashboard deployment is completed you can access the Kubernetes dashboard by following the next set of instructions.
-This will be a proxy server between your machine and K8s API server. Since the service type is ClusterIp by default, we can’t access the dashboard outside the cluster as it is not exposed. But if we want to access the dashboard from outside the cluster we have to change the type of the service to either NodePort or Loadbalancer.
+Once the Kubernetes dashboard deployment is completed you can access the Kubernetes dashboard by following the next set of instructions.  
+This will be a proxy server between your machine and K8s API server. Since the service type is ClusterIp by default, we can’t access the dashboard outside the cluster as it is not exposed. But if we want to access the dashboard from outside the cluster we have to change the type of the service to either NodePort or Loadbalancer.   
 
-We will have to change the type of service from ClusterIp to NodePort. So, give the following command to edit the service and make the following changes:
+We will have to change the type of service from ClusterIp to NodePort. So, give the following command to edit the service and make the following changes:  
 
-$ kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
+$ kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard  
 
 selector:  
     k8s-app: kubernetes-dashboard  
