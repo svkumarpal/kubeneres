@@ -31,7 +31,7 @@ Kubernetes Service (NodePort/ClusterIp/LoadBalancer)
 Ingress Controller (Layer 7)  
 
 Once the Kubernetes dashboard deployment is completed you can access the Kubernetes dashboard by following the next set of instructions.  
-This will be a proxy server between your machine and K8s API server. Since the service type is ClusterIp by default, we can’t access the dashboard outside the cluster as it is not exposed. But if we want to access the dashboard from outside the cluster we have to change the type of the service to either NodePort or Loadbalancer.   
+This will be a proxy server between your machine and K8s API server. Since the service type is ClusterIP by default, we can’t access the dashboard outside the cluster as it is not exposed. But if we want to access the dashboard from outside the cluster we have to change the type of the service to either NodePort or Loadbalancer.   
 
 We will have to change the type of service from ClusterIp to NodePort. So, give the following command to edit the service and make the following changes:  
 
