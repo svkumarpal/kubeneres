@@ -44,28 +44,28 @@ status:
   loadBalancer: {}
 # save and exit
 
-$ vim k8s-serviceaccount.yml 
+$ vim dashboard-adminuser.yaml 
 
-cat k8s-serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: dashboard-admin
+  name: admin-user
   namespace: kubernetes-dashboard
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cluster-admin-rolebinding
+  name: admin-user
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  name: dashboard-admin
+  name: admin-user
   namespace: kubernetes-dashboard
-$ kubectl create -f k8s-serviceaccount.yml 
+
+$ kubectl apply -f dashboard-adminuser.yaml
 
 After successful creation of the service account, perform the below set of commands:
 
@@ -78,5 +78,23 @@ $ kubectl get svc -n kubernetes-dashboard
 # Get token for user and copy it.
 kubectl -n kubernetes-dashboard create token admin-user
 
+# create secret
+$vim admin-user-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+  annotations:
+    kubernetes.io/service-account.name: "admin-user"   
+type: kubernetes.io/service-account-token
+$ kubectl create -f admin-user-secret.yaml
+After Secret is created, we can execute the following command to get the token which saved in the Secret:
+
+$ kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
+
+# <pr>Accessing Dashboard </pr>
 Now, to view the dashboard in the browser, navigate to the following address in the browser:
 https://<NodeIp>:<dashboard port> #port will get through kubect get svc -n kubernetes-dashboard
+https://k8sm.svkp.lab:<NodePort Port>
+https://k8sm.svkp.lab:32504
