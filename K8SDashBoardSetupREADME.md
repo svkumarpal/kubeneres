@@ -46,15 +46,15 @@ status:
 
 $ vim dashboard-adminuser.yaml 
 
-apiVersion: v1
+<apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
   namespace: kubernetes-dashboard
 ---
-<pr>apiVersion: rbac.authorization.k8s.io/v1
-<pr>kind: ClusterRoleBinding</pr>
-<pr>metadata:</pr>
+< apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
   name: admin-user
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -81,7 +81,7 @@ kubectl -n kubernetes-dashboard create token admin-user
 # create secret
 $vim admin-user-secret.yaml
 
-<pr>apiVersion: v1
+<apiVersion: v1
 kind: Secret
 metadata:
   name: admin-user
