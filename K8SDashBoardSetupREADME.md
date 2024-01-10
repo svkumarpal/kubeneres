@@ -1,7 +1,8 @@
 # Installing the Kubernetes Dashboard
-# Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow the step-by-step procedure given below. We need to apply the recommended deployment descriptor file:
+Deploying the Kubernetes Dashboard is not a tough job, you’d have to follow the step-by-step procedure given below. We need to apply the recommended deployment descriptor file:  
 
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml  
+
 If everything was right, all the required resources are created and we should be able to see the below output:
 
 Next step is to check all the resources by the below command
