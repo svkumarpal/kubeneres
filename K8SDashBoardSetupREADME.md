@@ -43,12 +43,11 @@ selector:
   type: NodePort # (changed from ClusterIP to NodeIP)   
 status:  
   loadBalancer: {}  
-# save and exit  
+! save and exit  
 
-$ vim dashboard-adminuser.yaml 
-
+$ vim dashboard-adminuser.yaml  
 apiVersion: v1  
-kind: ServiceAccount  
+kind: ServiceAccount   
 metadata:  
   name: admin-user  
   namespace: kubernetes-dashboard  
