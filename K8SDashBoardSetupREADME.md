@@ -36,21 +36,21 @@ We will have to change the type of service from ClusterIp to NodePort. So, give 
 
 $ kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
 
-selector:
-    k8s-app: kubernetes-dashboard
-  sessionAffinity: None
-  type: NodePort # (changed from ClusterIP to NodeIP) 
-status:
-  loadBalancer: {}
-# save and exit
+selector:  
+    k8s-app: kubernetes-dashboard  
+  sessionAffinity: None  
+  type: NodePort # (changed from ClusterIP to NodeIP)   
+status:  
+  loadBalancer: {}  
+# save and exit  
 
 $ vim dashboard-adminuser.yaml 
 
-apiVersion: v1\
-kind: ServiceAccount
-metadata:\
-  name: admin-user\
-  namespace: kubernetes-dashboard
+apiVersion: v1  
+kind: ServiceAccount  
+metadata:  
+  name: admin-user  
+  namespace: kubernetes-dashboard  
 ---
 apiVersion: rbac.authorization.k8s.io/v1  
 kind: ClusterRoleBinding  
