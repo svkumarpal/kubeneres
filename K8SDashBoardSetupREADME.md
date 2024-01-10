@@ -81,14 +81,14 @@ kubectl -n kubernetes-dashboard create token admin-user
 # create secret
 $vim admin-user-secret.yaml
 
-<apiVersion: v1
-kind: Secret
-metadata:
-  name: admin-user
-  namespace: kubernetes-dashboard
-  annotations:
-    kubernetes.io/service-account.name: "admin-user"   
-type: kubernetes.io/service-account-token</pr>
+apiVersion: v1\
+kind: Secret\
+metadata:\
+  name: admin-user\
+  namespace: kubernetes-dashboard\
+  annotations:\
+    kubernetes.io/service-account.name: "admin-user"\  
+type: kubernetes.io/service-account-token\
 
 $ kubectl create -f admin-user-secret.yaml
 
