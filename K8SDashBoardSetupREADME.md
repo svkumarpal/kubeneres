@@ -80,21 +80,23 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 # create secret
 $vim admin-user-secret.yaml
-apiVersion: v1
+<pr>apiVersion: v1
 kind: Secret
 metadata:
   name: admin-user
   namespace: kubernetes-dashboard
   annotations:
     kubernetes.io/service-account.name: "admin-user"   
-type: kubernetes.io/service-account-token
+type: kubernetes.io/service-account-token</pr>
 $ kubectl create -f admin-user-secret.yaml
+
 After Secret is created, we can execute the following command to get the token which saved in the Secret:
 
 $ kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d.
 
 # Accessing Dashboard
 Now, to view the dashboard in the browser, navigate to the following address in the browser:
-https://<NodeIp>:<dashboard port> #port will get through kubect get svc -n kubernetes-dashboard
-https://k8sm.svkp.lab:<NodePort Port>
+<pr>https://<NodeIp>:<dashboard port> #port will get through kubect get svc -n kubernetes-dashboard
+</pr>
+<pr>https://k8sm.svkp.lab:<NodePort Port></pr>
 https://k8sm.svkp.lab:32504
