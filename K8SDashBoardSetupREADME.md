@@ -52,28 +52,26 @@ metadata:\
   name: admin-user\
   namespace: kubernetes-dashboard
 ---
-< apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: admin-user
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: admin-user
-  namespace: kubernetes-dashboard
+apiVersion: rbac.authorization.k8s.io/v1  
+kind: ClusterRoleBinding  
+metadata:  
+  name: admin-user  
+roleRef:  
+  apiGroup: rbac.authorization.k8s.io  
+  kind: ClusterRole  
+  name: cluster-admin  
+subjects:  
+- kind: ServiceAccount  
+  name: admin-user  
+  namespace: kubernetes-dashboard  
 
-$ kubectl apply -f dashboard-adminuser.yaml
+$ kubectl apply -f dashboard-adminuser.yaml  
 
 After successful creation of the service account, perform the below set of commands:
 
 $ kubectl get sa -n kubernetes-dashboard
-
-$ kubectl describe sa kubernetes-dashboard -n kubernetes-dashboard
-
-$ kubectl get svc -n kubernetes-dashboard
+$ kubectl describe sa kubernetes-dashboard -n kubernetes-dashboard  
+$ kubectl get svc -n kubernetes-dashboard  
 
 # Get token for user and copy it.
 kubectl -n kubernetes-dashboard create token admin-user
