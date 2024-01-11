@@ -24,8 +24,8 @@ helloworld
 │  ├── serviceaccount.yaml  
 │  ├── service.yaml  
 │  └── tests  
-│      └── test-connection.yaml  
-└── values.yaml
+│       └── test-connection.yaml  
+└── values.yaml 
 
 Great now you created your first Helm Chart - helloworld.
 
