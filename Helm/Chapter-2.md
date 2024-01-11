@@ -12,19 +12,19 @@ drwxr-xr-x   4 ansadm ansadm    93 Jan 11 23:09 helloworld
 To verify the complete directory structure of the HelmChart please do run the command
 $ tree helloworld 
 
-helloworld
-├── charts
-├── Chart.yaml
-├── templates
-│  ├── deployment.yaml
-│  ├── _helpers.tpl
-│  ├── hpa.yaml
-│  ├── ingress.yaml
-│  ├── NOTES.txt
-│  ├── serviceaccount.yaml
-│  ├── service.yaml
-│  └── tests
-│      └── test-connection.yaml
+helloworld  
+├── charts  
+├── Chart.yaml  
+├── templates  
+│  ├── deployment.yaml  
+│  ├── _helpers.tpl  
+│  ├── hpa.yaml  
+│  ├── ingress.yaml  
+│  ├── NOTES.txt  
+│  ├── serviceaccount.yaml  
+│  ├── service.yaml  
+│  └── tests  
+│      └── test-connection.yaml  
 └── values.yaml
 
 Great now you created your first Helm Chart - helloworld.
