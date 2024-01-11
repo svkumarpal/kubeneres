@@ -31,7 +31,9 @@ kubectl apply -f pod2.yaml
 $ kubectl get pods -o wide
 
 Now verify the connectivity from pod1 to pod2 and vice versa:
-$ kubectl exec -it pod1 -- curl pod-ipaddress
+$ kubectl exec -it pod1 -- curl pod2-ipaddress
 --------------------
-$ kubectl exec -it pod2 -- curl pod-ipaddress
+$ kubectl exec -it pod2 -- curl pod1-ipaddress
+
+
 

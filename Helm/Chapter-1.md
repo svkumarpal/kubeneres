@@ -1,26 +1,25 @@
-# Basic Helm CLI Command
-# helm create:
-helm create helloword
+# 1. Install Helm Chart
+Installing the Helm Chart pretty easy but there is a pre-requisite of setting up Kubernetes Cluster.
 
-# helm install:
-helm install myhelloworldrelease helloword
-helm list -a
+Install Helm Chart Using Script
+If you like doing everything from scratch then I would suggest you to install the Helm Chart Using script.
 
-# Helm Upgrade Command:
-$ vim helloword/values.yaml   # make some value change, Here I changed replicaset value from 1 - 2
-$ helm upgrade myhellorelease helloword
+Run the following scripts -
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 
-# helm Rollback || go back to perticular revision version
-helm rollback myhelloworldrelease 1 # here 1 is revision version
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
 
-# helm -debug --dry-run || validate your helm chart before install
-helm install myhelloworld --debug --dry-run helloword #note: should not install
+# Install Helm Chart Using Binary
+The other option would be to download the complete binary and do the installation be yourself
 
-# helm template || validate yaml template under your chart
-helm template helloword
+Step 1 : Download the Binary https://github.com/helm/helm/releases
 
-# helm lint
-helm lint
+Step 2 : Extract the binary using the command
+$ tar -zxvf helm-vxxx-xxxx-xxxx.tar.gz
 
-# helm uninstall
-helm uninstall 
+Step 3 : Move it to
+$ mv linux-amd64/helm /usr/local/bin/helm or /usr/bin
+
+Verify the Installation - You can verify the installation by running the following command
+$ helm version
