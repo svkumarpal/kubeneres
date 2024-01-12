@@ -7,11 +7,12 @@
 5- Install the Helm chart
 6- Verify the Helm Chart after installation
 ```
-## 1. Build Docker image 
+## 1. Build / tag /push / pull / and run Docker image 
 ```commandline
+1- build:
 docker build -t python-project .
 ```
-## 2. Build and tag according to docker hub
+ 2. Build and tag according to docker hub
 ```commandline
 docker tag python-project svkumarpal/python-rest-api-project-main:python-project
 ```
