@@ -1,17 +1,25 @@
 ## 1. Build Docker image 
 ```commandline
-docker build -t python-rest-api .
+docker build -t python-project .
 ```
-
-## 2. Run Docker image
+## 2. Build and tag according to docker hub
 ```commandline
-docker run -p 9001:9001 python-rest-api
+docker tag python-project svkumarpal/python-rest-api-project-main:python-project
 ```
 ## 3. Docker push
 ```Commandline
-docker push svkumarpal/python-rest-api-project-main
+docker push svkumarpal/python-rest-api-project-main:python-project
 ```
-## 4. Docker pull
+## 4. Docker pull.
 ```Commandline
-docker pull svkumarpal/python-rest-api-project-main
+docker pull svkumarpal/python-rest-api-project-main:python-project
+```
+## 5. Run Docker image
+```commandline
+docker run -p 9001:9001 python-project
+```
+
+## Note: Before execute 2nd steps Plese login on docker hub
+```commandline
+docker login -u <username>
 ```
