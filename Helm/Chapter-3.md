@@ -9,7 +9,6 @@
 7- helm lint
 8- helm uninstall
 ```
-===============================
 ## 1- Helm create & 2. install  
 ```
 $ helm create helloworld
