@@ -82,8 +82,9 @@ $ kubectl describe sa kubernetes-dashboard -n kubernetes-dashboard
 $ kubectl get svc -n kubernetes-dashboard
 ```
 # Get token for user and copy it.
+```
 kubectl -n kubernetes-dashboard create token admin-user
-
+```
 # create secret
 ```
 $vim admin-user-secret.yaml
