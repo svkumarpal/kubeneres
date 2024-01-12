@@ -19,7 +19,7 @@ docker pull svkumarpal/python-rest-api-project-main:python-project
 docker run -p 9001:9001 python-project
 ```
 
-## Note: Before execute 2nd steps Plese login on docker hub
+## Note: Before execute 2nd step Please login on docker hub
 ```commandline
 docker login -u <username>
 ```
