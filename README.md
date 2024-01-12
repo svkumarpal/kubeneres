@@ -465,7 +465,7 @@ spec:
         name: nginx
 ```
 
-## Missslenious Commands
+## Misslenious Commands
 ```
 kubectl get deployments.v1.apps -o yaml
 ```
