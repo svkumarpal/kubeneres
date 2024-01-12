@@ -38,7 +38,7 @@ priorityclasses                   pc           scheduling.k8s.io/v1             
 storageclasses                    sc           storage.k8s.io/v1                      false        StorageClass
 ```
 
-# added loop to check all api-resources status
+# Added loop to check all api-resources status
 ```
 for p in `(cat k8sshortcut.txt)`; do echo "kubectl get ${p}"; kubectl get "${p}"; done
 ```
