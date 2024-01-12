@@ -43,3 +43,9 @@ storageclasses                    sc           storage.k8s.io/v1                
 for p in `(cat k8sshortcut.txt)`; do echo "kubectl get ${p}"; kubectl get "${p}"; done
 ```
 where k8sshortcut.txt is list from 2nd column at above.
+
+## Check Master Node Health Status
+```
+kubectl get --raw='/readyz?verbose'
+curl -k https://localhost:6443/livez?verbose
+```
