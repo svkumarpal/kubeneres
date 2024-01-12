@@ -108,7 +108,7 @@ $ kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.toke
 # Accessing Dashboard
 Now, to view the dashboard in the browser, navigate to the following address in the browser:
 ```
-https://<NodeIp>:<dashboard port> #port will get through kubect get svc -n kubernetes-dashboard
+https://<NodeIp>:<dashboard port>               #port will get through kubect get svc -n kubernetes-dashboard
 https://k8sm.svkp.lab:<NodePort_Port>
 https://k8sm.svkp.lab:32504
 ```
