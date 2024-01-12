@@ -1,5 +1,4 @@
-# Chapter - 4
-# (create your own custum chart)
+# Chapter - 4 (Steps to create our own custum chart)
 ```
 1- Python Application with REST API
 2- Create Docker Container
