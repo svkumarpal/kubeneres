@@ -75,6 +75,7 @@ $ save and exit from value.yaml file.
 
 ## Worke with templates/deployment.yaml
 ```
+1. remove ApiVersion from file
 vim template/deployment.yaml        # search image: will get below value
 image: "{{ .Values.image.repository }}"
 
@@ -82,6 +83,43 @@ Remove this : :{{ .Values.image.tag | default .Chart.AppVersion }}
 
 Final value should be like below:
 image: "{{ .Values.image.repository }}
+
+2. Define containerPort
+do vi and search /containerPort: value and define port you want to access the your application
+```
+$ cat templates/deployment.yaml | grep -A 2 ports
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+```
+
+Or Change value as below:
+```
+$ sed -i 's/containerPort: .*/containerPort: 9001/' templates/deployment.yaml
+```
+Now verify you changes by below command:
+```
+cat templates/deployment.yaml | egrep -A 12 "ports:|containers:"
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}"		# ---------------> should be like it
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 9001			# Port should be change as per application requirement
+              protocol: TCP
+              #livenessProbe:				# should be commented
+              #httpGet:                     # should be commented
+              #path: /                      # should be commented
+              #port: http                   # should be commented
+              #readinessProbe:              # should be commented
+              #httpGet:                     # should be commented
+              #path: /                      # should be commented
+              #port: http                   # should be commented
+          resources:
+```
 
 Do Save and exit
 ```
